@@ -3,7 +3,7 @@ package fpinscala.gettingstarted
 import org.scalatest.{FunSpec, Matchers}
 import fpinscala.datastructures.List
 import fpinscala.datastructures.Nil
-import fpinscala.datastructures.List.{setHead, tail}
+import fpinscala.datastructures.List.{setHead, tail, drop, dropWhile, init}
 
 class DataStructuresSpec extends FunSpec with Matchers {
   describe("tail()") {
@@ -29,4 +29,60 @@ class DataStructuresSpec extends FunSpec with Matchers {
       setHead(List(1, 1337), 42) shouldBe List(42, 1337)
     }
   }
+
+  describe("drop()") {
+    it("should return given list if n = 0") {
+      drop(List(1,2,3), 0) shouldBe List(1,2,3)
+    }
+
+    it("should remove first element") {
+      drop(List(1,2,3), 1) shouldBe List(2,3)
+    }
+
+    it("should remove first two elements") {
+      drop(List(1,2,3), 2) shouldBe List(3)
+    }
+
+    it("should return empty list if n equals to the size of the list") {
+      drop(List(1,2,3), 3) shouldBe List()
+    }
+
+    it("should return empty list if n is greater than the size of the list") {
+      drop(List(1,2,3), 4) shouldBe List()
+    }
+
+    it("should return empty list given list is empty") {
+      drop(List(), 2) shouldBe List()
+    }
+  }
+
+  describe("dropWhile()") {
+    it("should return given list if first element doesn't match the predicate") {
+      dropWhile(List(1,2,3), (x: Int) => x < 1) shouldBe List(1,2,3)
+    }
+
+    it("should drop one element if first element matches the predicate") {
+      dropWhile(List(1,2,3), (x: Int) => x <= 1) shouldBe List(2,3)
+    }
+
+    it("should drop two elements if first two elements match the predicate") {
+      dropWhile(List(1,2,3), (x: Int) => x <= 2) shouldBe List(3)
+    }
+
+    it("should return empty list if all elements match the predicate") {
+      dropWhile(List(1,2,3), (x: Int) => x < 4) shouldBe List()
+    }
+  }
+
+  describe("init()") {
+    it("should return List(1,2,3) for given List(1,2,3,4)") {
+      init(List(1,2,3,4)) shouldBe List(1,2,3)
+    }
+
+    it("should return List() for given List(1)") {
+      init(List(1)) shouldBe List()
+    }
+  }
+
+  describe("length()")
 }

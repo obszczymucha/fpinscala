@@ -118,7 +118,9 @@ object List {
     foldLeft(l, 0)((x, _) => x + 1)
   }
 
-  def reverse[A](l: List[A]): List[A] = sys.error("todo")
+  def reverse[A](l: List[A]): List[A] = {
+    foldLeft(l, List[A]())((xs, x) => Cons(x, xs))
+  }
 
   def map[A, B](l: List[A])(f: A => B): List[B] = sys.error("todo")
 }

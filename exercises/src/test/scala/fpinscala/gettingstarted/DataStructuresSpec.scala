@@ -125,4 +125,14 @@ class DataStructuresSpec extends FunSpec with Matchers {
       List.lengthUsingFoldLeft(List('a', 'b', 'c', 'd')) shouldBe 4
     }
   }
+
+  describe("reverse()") {
+    it("should return List() for given List()") {
+      List.reverse(List()) shouldBe List()
+    }
+
+    it("should return List(3,2,1) for given List(1,2,3)") {
+      List.reverse(List(1,2,3)) shouldBe List(3,2,1)
+    }
+  }
 }

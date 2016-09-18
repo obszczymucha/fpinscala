@@ -135,4 +135,14 @@ class DataStructuresSpec extends FunSpec with Matchers {
       List.reverse(List(1,2,3)) shouldBe List(3,2,1)
     }
   }
+
+  describe("foldLeftUsingFoldRight()") {
+    it("should return 0 for List(0)") {
+      List.foldLeftUsingFoldRight(List(0), 0)((x, y) => x + y) shouldBe 0
+    }
+
+    it("should sum the list") {
+      List.foldLeftUsingFoldRight(List(1, 2, 3, 4), 0)((x, y) => x + y) shouldBe 10
+    }
+  }
 }

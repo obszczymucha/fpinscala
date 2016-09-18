@@ -118,7 +118,7 @@ object List {
     foldLeft(l, 0)((x, _) => x + 1)
   }
 
-  def lengthUsingFoldLeft[A](l: List[A]): Int = sys.error("todo")
+  def reverse[A](l: List[A]): List[A] = sys.error("todo")
 
   def map[A, B](l: List[A])(f: A => B): List[B] = sys.error("todo")
 }

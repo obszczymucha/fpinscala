@@ -90,7 +90,7 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
 
     it("should return the list for non-empty list") {
-      List.length(List(1,1,2,1,2,1,2,1)) shouldBe 8
+      List.length(List('P','r','i','n','c','e','s','s')) shouldBe 8
     }
   }
 
@@ -101,6 +101,28 @@ class DataStructuresSpec extends FunSpec with Matchers {
 
     it("should sum the list") {
       foldLeft(List(1, 2, 3, 4), 0)((x, y) => x + y) shouldBe 10
+    }
+  }
+
+  describe("sumUsingFoldLeft()") {
+    it("should return 10 for List(1,2,3,4)") {
+      List.sumUsingFoldLeft(List(1,2,3,4)) shouldBe 10
+    }
+  }
+
+  describe("productUsingFoldLeft()") {
+    it("should return 24 for List(1,2,3,4)") {
+      List.productUsingFoldLeft(List(1, 2, 3, 4)) shouldBe 24
+    }
+  }
+
+  describe("lengthUsingFoldLeft()") {
+    it("should return 0 for an empty list") {
+      List.lengthUsingFoldLeft(List()) shouldBe 0
+    }
+
+    it("should return 4 for List('a','b','c','d')") {
+      List.lengthUsingFoldLeft(List('a', 'b', 'c', 'd')) shouldBe 4
     }
   }
 }

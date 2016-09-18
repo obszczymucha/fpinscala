@@ -106,9 +106,17 @@ object List {
     }
   }
 
-  def sumUsingFoldLeft(l: List[Int]): Int = sys.error("todo")
+  def sumUsingFoldLeft(l: List[Int]): Int = {
+    foldLeft(l, 0)(_ + _)
+  }
 
-  def productUsingFoldLeft(l: List[Int]): Int = sys.error("todo")
+  def productUsingFoldLeft(l: List[Int]): Int = {
+    foldLeft(l, 1)(_ * _)
+  }
+
+  def lengthUsingFoldLeft[A](l: List[A]): Int = {
+    foldLeft(l, 0)((x, _) => x + 1)
+  }
 
   def lengthUsingFoldLeft[A](l: List[A]): Int = sys.error("todo")
 

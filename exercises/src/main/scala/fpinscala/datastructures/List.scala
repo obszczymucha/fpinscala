@@ -106,5 +106,11 @@ object List {
     }
   }
 
+  def sumUsingFoldLeft(l: List[Int]): Int = sys.error("todo")
+
+  def productUsingFoldLeft(l: List[Int]): Int = sys.error("todo")
+
+  def lengthUsingFoldLeft[A](l: List[A]): Int = sys.error("todo")
+
   def map[A, B](l: List[A])(f: A => B): List[B] = sys.error("todo")
 }

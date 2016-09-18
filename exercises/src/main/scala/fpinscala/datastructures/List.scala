@@ -88,6 +88,7 @@ object List {
   def init[A](l: List[A]): List[A] = {
     def go(result: List[A], left: List[A]): List[A] = {
       left match {
+        case Nil => throw new IllegalArgumentException()
         case Cons(_, Nil) => result
         case Cons(h, t) => go(append(result, List(h)), t)
       }

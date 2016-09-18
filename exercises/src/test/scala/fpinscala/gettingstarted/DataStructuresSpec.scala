@@ -82,6 +82,12 @@ class DataStructuresSpec extends FunSpec with Matchers {
     it("should return List() for given List(1)") {
       init(List(1)) shouldBe List()
     }
+
+    it("should throw ig given list is empty") {
+      assertThrows[IllegalArgumentException] {
+        init(List())
+      }
+    }
   }
 
   describe("length()") {

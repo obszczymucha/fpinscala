@@ -3,7 +3,7 @@ package fpinscala.gettingstarted
 import org.scalatest.{FunSpec, Matchers}
 import fpinscala.datastructures.List
 import fpinscala.datastructures.Nil
-import fpinscala.datastructures.List.{setHead, tail, drop, dropWhile, init}
+import fpinscala.datastructures.List.{setHead, tail, drop, dropWhile, init, foldLeft}
 
 class DataStructuresSpec extends FunSpec with Matchers {
   describe("tail()") {
@@ -76,7 +76,7 @@ class DataStructuresSpec extends FunSpec with Matchers {
 
   describe("init()") {
     it("should return List(1,2,3) for given List(1,2,3,4)") {
-      init(List(1,2,3,4)) shouldBe List(1,2,3)
+      init(List(1,2,3,4)  ) shouldBe List(1,2,3)
     }
 
     it("should return List() for given List(1)") {
@@ -84,5 +84,23 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("length()")
+  describe("length()") {
+    it("should return 0 for an empty list") {
+      List.length(List()) shouldBe 0
+    }
+
+    it("should return the list for non-empty list") {
+      List.length(List(1,1,2,1,2,1,2,1)) shouldBe 8
+    }
+  }
+
+  describe("foldLeft()") {
+    it("should return 0 for List(0)") {
+      foldLeft(List(0), 0)((x, y) => x + y) shouldBe 0
+    }
+
+    it("should sum the list") {
+      foldLeft(List(1, 2, 3, 4), 0)((x, y) => x + y) shouldBe 10
+    }
+  }
 }

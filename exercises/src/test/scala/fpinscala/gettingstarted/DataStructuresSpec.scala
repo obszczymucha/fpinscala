@@ -6,7 +6,7 @@ import fpinscala.datastructures.Nil
 import fpinscala.datastructures.List.{setHead, tail, drop, dropWhile, init, foldLeft}
 
 class DataStructuresSpec extends FunSpec with Matchers {
-  describe("tail()") {
+  describe("Exercise 3.2: tail()") {
     it("should return List(2,3) for given List(1,2,3)") {
       tail(List(1, 2, 3)) shouldBe List(2, 3)
     }
@@ -16,7 +16,7 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("setHead()") {
+  describe("Exercise 3.3: setHead()") {
     it("should return the list with given element if given list is Nil") {
       setHead(Nil, 1337) shouldBe List(1337)
     }
@@ -30,7 +30,7 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("drop()") {
+  describe("Exercise 3.4: drop()") {
     it("should return given list if n = 0") {
       drop(List(1,2,3), 0) shouldBe List(1,2,3)
     }
@@ -56,7 +56,7 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("dropWhile()") {
+  describe("Exercise 3.5: dropWhile()") {
     it("should return given list if first element doesn't match the predicate") {
       dropWhile(List(1,2,3), (x: Int) => x < 1) shouldBe List(1,2,3)
     }
@@ -74,7 +74,7 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("init()") {
+  describe("Exercise 3.6: init()") {
     it("should return List(1,2,3) for given List(1,2,3,4)") {
       init(List(1,2,3,4)  ) shouldBe List(1,2,3)
     }
@@ -90,7 +90,7 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("length()") {
+  describe("Exercise 3.9: length()") {
     it("should return 0 for an empty list") {
       List.length(List()) shouldBe 0
     }
@@ -100,7 +100,7 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("foldLeft()") {
+  describe("Exercise 3.10: foldLeft()") {
     it("should return 0 for List(0)") {
       foldLeft(List(0), 0)((x, y) => x + y) shouldBe 0
     }
@@ -110,19 +110,19 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("sumUsingFoldLeft()") {
+  describe("Exercise 3.11: sumUsingFoldLeft()") {
     it("should return 10 for List(1,2,3,4)") {
       List.sumUsingFoldLeft(List(1,2,3,4)) shouldBe 10
     }
   }
 
-  describe("productUsingFoldLeft()") {
+  describe("Exercise 3.11: productUsingFoldLeft()") {
     it("should return 24 for List(1,2,3,4)") {
       List.productUsingFoldLeft(List(1, 2, 3, 4)) shouldBe 24
     }
   }
 
-  describe("lengthUsingFoldLeft()") {
+  describe("Exercise 3.11: lengthUsingFoldLeft()") {
     it("should return 0 for an empty list") {
       List.lengthUsingFoldLeft(List()) shouldBe 0
     }
@@ -132,23 +132,13 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
   }
 
-  describe("reverse()") {
+  describe("Exercise 3.12: reverse()") {
     it("should return List() for given List()") {
       List.reverse(List()) shouldBe List()
     }
 
     it("should return List(3,2,1) for given List(1,2,3)") {
       List.reverse(List(1,2,3)) shouldBe List(3,2,1)
-    }
-  }
-
-  describe("foldLeftUsingFoldRight()") {
-    it("should return 0 for List(0)") {
-      List.foldLeftUsingFoldRight(List(0), 0)((x, y) => x + y) shouldBe 0
-    }
-
-    it("should sum the list") {
-      List.foldLeftUsingFoldRight(List(1, 2, 3, 4), 0)((x, y) => x + y) shouldBe 10
     }
   }
 }

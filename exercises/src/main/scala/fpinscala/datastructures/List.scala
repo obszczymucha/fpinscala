@@ -123,7 +123,7 @@ object List {
     foldLeft(l, List[A]())((xs, x) => Cons(x, xs))
   }
 
-  def foldLeftUsingFoldRight[A, B](l: List[A], z: B)(f: (B, A) => B): B = sys.error("todo")
-
-  def map[A, B](l: List[A])(f: A => B): List[B] = sys.error("todo")
+  def appendUsingFoldLeft[A](l1: List[A], l2: List[A]) = {
+    foldLeft(reverse(l1), l2)((xs, x) => Cons(x, xs))
+  }
 }

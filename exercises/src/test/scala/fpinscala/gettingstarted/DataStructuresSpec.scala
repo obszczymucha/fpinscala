@@ -3,7 +3,7 @@ package fpinscala.gettingstarted
 import org.scalatest.{FunSpec, Matchers}
 import fpinscala.datastructures.List
 import fpinscala.datastructures.Nil
-import fpinscala.datastructures.List.{setHead, tail, drop, dropWhile, init, foldLeft}
+import fpinscala.datastructures.List.{setHead, tail, drop, dropWhile, init, foldLeft, appendUsingFoldLeft}
 
 class DataStructuresSpec extends FunSpec with Matchers {
   describe("Exercise 3.2: tail()") {
@@ -139,6 +139,20 @@ class DataStructuresSpec extends FunSpec with Matchers {
 
     it("should return List(3,2,1) for given List(1,2,3)") {
       List.reverse(List(1,2,3)) shouldBe List(3,2,1)
+    }
+  }
+
+  describe("Exercise 3.14: appendUsingFoldLeft()") {
+    it("should return a list with given element if the first list was empty") {
+      List.appendUsingFoldLeft(List(), List("Princess Kenny")) shouldBe List("Princess Kenny")
+    }
+
+    it("should return a list with given element if the second list was empty") {
+      List.appendUsingFoldLeft(List("Princess Kenny"), List()) shouldBe List("Princess Kenny")
+    }
+
+    it("should append elements from the second list to the elements of the first list") {
+      List.appendUsingFoldLeft(List("Princess", "Kenny"), List("Flying", "Pigs")) shouldBe List("Princess", "Kenny", "Flying", "Pigs")
     }
   }
 }
